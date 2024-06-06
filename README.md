@@ -17,7 +17,11 @@ samples, guidance on mobile development, and a full API reference.
 
 
 flutter_animate -> https://pub.dev/packages/flutter_animate
+
 Fragment shaders -> https://docs.flutter.dev/ui/design/graphics/fragment-shaders
+
 The Book of Shaders, de Patricio Gonzalez Vivo e Jen Lowe -> https://thebookofshaders.com/
+
 Shader toy -> https://www.shadertoy.com/
+
 simple_shader -> https://github.com/flutter/samples/tree/main/simple_shader
