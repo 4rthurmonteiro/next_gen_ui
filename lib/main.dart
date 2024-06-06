@@ -6,16 +6,23 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:next_gen_ui/title_screen/tiltle_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
-
-import 'styles.dart';
+import 'package:flutter_animate/flutter_animate.dart'; // Add this import
+import 'assets.dart'; // Add this import
 
 void main() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowMinSize(const Size(800, 500));
   }
-  runApp(const NextGenApp());
+  Animate.restartOnHotReload = true; // Add this line
+
+  runApp(FutureProvider<FragmentPrograms?>(
+      create: (context) => loadFragmentPrograms(),
+      initialData: null,
+      child: const NextGenApp()));
 }
 
 class NextGenApp extends StatelessWidget {
@@ -26,14 +33,7 @@ class NextGenApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            'Insert Next-Generation UI Here...',
-            style: TextStyles.h2,
-          ),
-        ),
-      ),
+      home: const TitleScreen(),
     );
   }
 }
